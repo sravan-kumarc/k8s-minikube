@@ -1,0 +1,5 @@
+#POD-CREATION
+kubectl run pod lnd-pod --image=nginx --port=80 --dry-run=client -o yaml >lnd-pod.yaml
+
+#deployment
+kubectl create deployment lnd-nginx-dep --image=nginx --port=80 --replicas=4 --dry-run=client -o yaml >lnd-nginx-dep.yaml
