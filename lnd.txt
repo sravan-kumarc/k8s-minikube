@@ -5,9 +5,21 @@ kubectl run pod lnd-pod --image=nginx --port=80 --dry-run=client -o yaml >lnd-po
 kubectl create deployment lnd-nginx-dep --image=nginx --port=80 --replicas=4 --dry-run=client -o yaml >lnd-nginx-dep.yaml
 
 #service
-sravan@sravankumar:~/AWS_DevOps/k8s/minikube$ kubectl apply -f lnd-nginx-dep.yaml
+sravan@sravankumar:~/AWS_DevOps/k8s/minikube$ kubectl apply -f lnd-nginx-dep.yaml #Deploying/apply .yaml manifest
 deployment.apps/lnd-nginx-dep created
 sravan@sravankumar:~/AWS_DevOps/k8s/minikube$ kubectl expose deployment lnd-nginx-dep --type=NodePort --port=80 --dry-run=client -o yaml >lnd-ndep-np.yaml
 
 #namespace
 kubectl create namespace lnd --dry-run=client -o yaml >lnd-namespace.yaml
+
+#ConfigMap
+kubectl create configmap lnd-configmap --from-literal=env=QA --from-literal=mode=DEBBUG --dry-run=client -o yaml >lnd-configmap.yaml
+
+#creating SECRETS
+kubectl create secret generic lnd-secret --from-literal=username=sravan.admin --from-literal=password='root@user#' --dry-run=client -o yaml > lnd2-secret.yaml
+
+Encoded in bas64 
+ password: cm9vb3RAdXNlciM=
+ username: c3JhdmFuLmFkbWlu
+#decoding username or password -
+kubectl get secret lnd-secret -o jsonpath='{.data.username}' | base64 --decode

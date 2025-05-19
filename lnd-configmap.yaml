@@ -1,0 +1,8 @@
+apiVersion: v1
+data:
+  env: QA
+  mode: DEBBUG
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: lnd-configmap
