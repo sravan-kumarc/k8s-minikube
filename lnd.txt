@@ -3,3 +3,11 @@ kubectl run pod lnd-pod --image=nginx --port=80 --dry-run=client -o yaml >lnd-po
 
 #deployment
 kubectl create deployment lnd-nginx-dep --image=nginx --port=80 --replicas=4 --dry-run=client -o yaml >lnd-nginx-dep.yaml
+
+#service
+sravan@sravankumar:~/AWS_DevOps/k8s/minikube$ kubectl apply -f lnd-nginx-dep.yaml
+deployment.apps/lnd-nginx-dep created
+sravan@sravankumar:~/AWS_DevOps/k8s/minikube$ kubectl expose deployment lnd-nginx-dep --type=NodePort --port=80 --dry-run=client -o yaml >lnd-ndep-np.yaml
+
+#namespace
+kubectl create namespace lnd --dry-run=client -o yaml >lnd-namespace.yaml
