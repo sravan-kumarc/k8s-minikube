@@ -3,7 +3,7 @@
 
 
 Imperative Commands:
-_______________________________
+---
 
 kubectl create namespace blue --dry-run=client -o yaml >blue_namespace.yaml
 
