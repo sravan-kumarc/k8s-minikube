@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  creationTimestamp: null
+  name: blue
+spec: {}
+status: {}
+
+#imperative Command : kubectl create namespace blue --dry-run=client -o yaml >blue_namespace.yaml
