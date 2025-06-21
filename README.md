@@ -2,4 +2,8 @@
 #k8s-minikube
 
 
-![image](https://github.com/user-attachments/assets/de3431f2-b331-4352-89d9-a587272b413e)
+#>mperative Commands:
+
+kubectl create namespace blue --dry-run=client -o yaml >blue_namespace.yaml
+
+kubectl run zinc-pod --image=nginx --port=80 --dry-run=client -o yaml >zinc-pod.yaml
