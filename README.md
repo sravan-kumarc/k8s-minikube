@@ -2,7 +2,8 @@
 #k8s-minikube
 
 
-#>mperative Commands:
+Imperative Commands:
+_______________________________
 
 kubectl create namespace blue --dry-run=client -o yaml >blue_namespace.yaml
 
